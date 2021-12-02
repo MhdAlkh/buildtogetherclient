@@ -1,0 +1,27 @@
+
+
+<div id="menu-project-thumbnail-main-container" (click)="goToProject()">
+
+  <div id="menu-project-thumbnail-picture">
+    🖥
+  </div>
+
+  <div id="menu-project-thumbnail-content">
+
+    <div id="menu-project-thumbnail-content-title">
+      {{(project.name.length>12)? (project.name | slice:0:12)+'..':(project.name) | uppercase}}
+    </div>
+
+    <div id="menu-project-thumbnail-content-description">
+      {{project.category | uppercase}}
+    </div>
+
+
+
+
+
+  </div>
+
+
+</div>
+

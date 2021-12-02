@@ -1,0 +1,76 @@
+
+mat-card {
+    width: 90%;
+    height: 80%;
+    background: #F8FAFB;
+    .edit {
+      position: absolute;
+      top: 0%;
+      right: 0%;
+      font-size: 130%;
+    }
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 10%;
+      object-fit: scale-down;
+      height: 260px;
+      width: auto;
+      resize: both;
+      margin: auto;
+      margin-top: -15px;
+      display: table;
+    }
+    .line {
+      display: inline-flex;
+      padding: 2%;
+    }
+    app-file-upload {
+      display: block;
+      padding: 5%;
+    }
+}
+
+.rounded-box {
+    width: 85%;
+    height: 90%;
+    padding: 5%;
+    border-radius: 10%;
+    background: white;
+    .header {
+      padding: 3%;
+      font-size: 170%;
+    }
+    .chip-list {
+      display: block;
+      padding: 5%;
+      .mat-chip {
+        color: white;
+        background: #334C70;
+      }      
+    }
+    mat-card {
+      width: 80%;
+      height: 63%;
+      display: block;
+      margin: auto;
+    }
+}
+
+.button {
+    background: #334C70;
+}
+
+.example-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.full-width {
+  width: 75%;
+}
+
+app-post-thumbnail {
+  display: block;
+  width: 90%;
+  margin: -5px;
+}

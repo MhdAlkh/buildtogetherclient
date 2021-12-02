@@ -1,0 +1,30 @@
+:host {
+
+
+
+  #create-project-title {
+    font-weight: 900;
+    font-size: 32px;
+    margin-bottom: 25px;
+  }
+
+  #create-project-fields {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+
+
+    #create-project-fields-column-1 {
+      flex: 1;
+      margin: 3%;
+    }
+
+    #create-project-fields-column-2 {
+      flex: 1;
+      margin: 3%;
+    }
+  }
+
+}

@@ -1,0 +1,20 @@
+<div *ngIf="followedProjects != null" class="full-width full-height" >
+    <div class="intern-title">Projects You Followed</div>
+
+    <div class="project-thumbnail-dashboard">
+    <app-project-thumbnail *ngFor="let project of followedProjects" [project]="project" class="project-thumbnail"></app-project-thumbnail>
+  </div>
+
+</div>
+
+<div *ngIf="invesedProjects != null" class="full-width full-height" >
+  <div class="intern-title">
+    <p style='float:left'>Projects You Invested in</p>
+    <p style='float:right'>Total: {{sumInvestments}} $</p>
+  </div>
+  <div style="clear: both;"></div>
+  <div class="project-thumbnail-dashboard">
+    <app-project-thumbnail *ngFor="let project of invesedProjects; let i = index" [amount]="amountByProject[i].amount" [project]="project" class="project-thumbnail"></app-project-thumbnail>
+  </div>
+
+</div>

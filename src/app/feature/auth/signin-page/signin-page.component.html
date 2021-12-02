@@ -1,0 +1,48 @@
+<div id="signin-logo">
+  <img src="assets/imgs/logo.png">
+</div>
+
+<div id="main-page">
+
+
+  <div id="signin-main-bloc">
+
+    <div class="full-width img-wrapper" id="illustration-wrapper">
+      <img src="assets/imgs/signin-illustration.jpg">
+    </div>
+
+
+
+    <div id="signin-buttons">
+      <button class="signin-upin-selection" [ngClass]="signInOrUp === false ? 'selected-button' : 'unselected-button'" (click)="switchSignInUp()">Sign Up</button>
+      <button class="signin-upin-selection" [ngClass]="signInOrUp === true ? 'selected-button' : 'unselected-button'" (click)="switchSignInUp()">Sign In</button>
+    </div>
+
+
+    <div id="signin-textfields">
+      <form [formGroup]="signInUpForm" class="full-width">
+        <label for="email">Email :</label>
+        <input type="text" id="email" name="email" placeholder="Enter your email" required class="inner-textfield signin-textfield full-width" formControlName="email">
+        <label for="email">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required class="inner-textfield signin-textfield full-width" formControlName="password">
+      </form>
+    </div>
+
+
+    <button id="signin-action-button" class="action-button" (click)="enterInApp()">
+      <a *ngIf="signInOrUp === true">Sign In</a>
+      <a *ngIf="signInOrUp === false">Sign Up</a>
+    </button>
+
+    <div id="error-message">
+      {{errorMessage}}
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+

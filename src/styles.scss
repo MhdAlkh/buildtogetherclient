@@ -1,0 +1,186 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+$main-color: #334C70;
+$secondary-background: #F8FAFB;
+$background-border: #EFF0F1;
+$text-color: #CFD1D2;
+$grey-text-color: #A1A0A4;
+$black-Text-color: #1D1327;
+
+
+
+.action-button {
+  background-color: $main-color;
+  color: white;
+
+  border-radius: 5px;
+  border: none;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.43);
+
+  font-weight: 700;
+  font-size: 18px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding-top: 12px;
+  padding-bottom: 12px;
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  cursor: pointer;
+}
+
+.action-button:hover {
+  background-color: rgba(51, 76, 112, 0.9);
+}
+
+
+.selected-button {
+
+  background-color: white;
+  color: $main-color;
+
+  border-radius: 5px;
+  border: 2px solid $main-color;
+  box-shadow: 3px 3px 3px $text-color;
+
+  font-weight: 700;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding-top: 8px;
+  padding-bottom: 8px;
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.selected-button:hover {
+  background-color: #ebecef;
+}
+
+
+.unselected-button {
+  background-color: white;
+  color: $grey-text-color;
+
+  border-radius: 5px;
+  border: 2px solid $grey-text-color;
+  box-shadow: 3px 3px 3px $secondary-background;
+
+  font-weight: 700;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding-top: 8px;
+  padding-bottom: 8px;
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.unselected-button:hover {
+  background-color: #ebecef;
+}
+
+
+.inner-textfield {
+  background-color: white;
+
+
+  border-radius: 5px;
+  border: 2px solid $grey-text-color;
+  box-shadow: 3px 3px 3px $secondary-background;
+
+  padding: 10px;
+
+  font-weight: 400;
+
+
+
+  // margin-bottom: 20px;
+}
+
+.inner-textfield:hover {
+  border: 2px solid $main-color;
+}
+
+
+.full-width {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.half-width {
+  width: 80%;
+  box-sizing: border-box;
+}
+
+.full-height {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.img-wrapper {
+  display: inline-block;
+  overflow: hidden;
+}
+
+
+.margin-top-10 {
+  margin-top: 10px
+}
+
+.content-divider {
+  border-bottom: 1px solid black;
+}
+
+.centered {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+
+.disableScroll{
+  overflow-y:hidden;
+  overflow-x:hidden;
+}
+
+
+.intern-title {
+  font-size: 28px;
+  font-weight: 900;
+  margin: 20px;
+}
+
+
+.intern-subtitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 5px;
+
+  color: $grey-text-color;
+}
+
+
+.intern-button {
+  cursor: pointer;
+}

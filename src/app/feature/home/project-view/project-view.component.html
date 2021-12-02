@@ -1,0 +1,61 @@
+<div *ngIf="!isUserProject">
+    <mat-grid-list cols="2" rowHeight="2:1">
+        <div class="rounded_box">
+            <mat-grid-tile>
+                <mat-card>
+                    <mat-card-title><strong>{{name}}</strong></mat-card-title>
+                    <mat-card-content>
+                        <p>{{text}}</p>
+                        <button class="action-button half-width centered" (click)="follow()">{{followstr}}</button>
+
+                    </mat-card-content>
+                </mat-card>
+            </mat-grid-tile>
+        </div>
+        <div class="rounded_box">
+            <mat-grid-tile>
+                <mat-card>
+                    <img *ngIf="!image" src="assets/temporary/project-photo.jpg" alt="Project Photo" />
+                    <img *ngIf="image" [src]='image' alt="Project Photo" />
+                </mat-card>
+            </mat-grid-tile>
+        </div>
+        <div class="rounded_box">
+            <mat-grid-tile>
+                <mat-card>
+                    <div class="row">
+                        <div class="column">
+                            <h2>We are</h2>
+                            <p *ngFor="let item of countsClosed | keyvalue">{{item.value}} {{item.key}}</p>
+                                            </div>
+                        <div class="column">
+                            <h2>We search</h2>
+                            <p *ngFor="let item of countsOpen | keyvalue">{{item.value}} {{item.key}}</p>
+                        </div>
+                    </div>
+                    <button class="action-button half-width centered" (click)="openDialog()">Apply</button>
+                </mat-card>
+            </mat-grid-tile>
+        </div>
+        <div class="rounded_box">
+            <mat-grid-tile>
+                <mat-card>
+                    <mat-card-title><strong>Help the Team</strong></mat-card-title>
+                    <div class="investment">
+                        <app-money-slider [achievedFund]="achievedFund" [totalFund]="+project.totalFund"></app-money-slider>
+                    </div>
+                    <mat-form-field appearance="fill" floatLabel="always">
+                        <mat-label>Amount</mat-label>
+                        <input matInput type="number" placeholder="0" [(ngModel)]="amount" name="amount">
+                        <span matPrefix>$&nbsp;</span>
+                    </mat-form-field>
+                    <button class="action-button invest-button" (click)="invest()">Invest</button>
+                </mat-card>
+            </mat-grid-tile>
+        </div>
+    </mat-grid-list>
+</div>
+
+<div *ngIf="isUserProject">
+    <app-owner-view></app-owner-view>
+</div>

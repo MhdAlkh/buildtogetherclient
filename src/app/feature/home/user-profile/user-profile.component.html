@@ -1,0 +1,99 @@
+<mat-grid-list cols="2" rowHeight="2.13:1">
+  <mat-grid-tile>
+    <mat-card *ngIf="!isEditImage">
+      <mat-card-content>
+        <mat-icon class="edit" (click)="isEditImage = true">edit</mat-icon>
+        <div>
+          <img [src]='image' alt="Your Photo" />
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card *ngIf="isEditImage">
+      <mat-card-content>
+      <app-file-upload (submitFile)="onSubmitFile($event)"></app-file-upload>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card *ngIf="!isEdit">
+      <mat-card-title
+        ><strong
+          >{{ user.last_name }} {{ user.first_name }}</strong
+        ></mat-card-title
+      >
+      <mat-card-subtitle>{{ user.title }}</mat-card-subtitle>
+      <mat-card-content>
+        <mat-icon class="edit" (click)="isEdit = true">edit</mat-icon><br />
+        <p>{{ user.summary }}</p>
+        <mat-icon inline style="color: #334c70">email</mat-icon>
+        <p class="line">{{ user.email }}</p>
+        <br />
+        <mat-icon inline style="color: #334c70">phone</mat-icon>
+        <p class="line">{{ user.tel }}</p>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="example-container" *ngIf="isEdit">
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>First Name</mat-label>
+          <input matInput type="text" [(ngModel)]="user.first_name" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Last Name</mat-label>
+          <input matInput type="text" [(ngModel)]="user.last_name" />
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your title</mat-label>
+          <input matInput placeholder="Backend Engineer" type="text" [(ngModel)]="user.title"/>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Phone number</mat-label>
+          <input matInput placeholder="+36 " type="text" [(ngModel)]="user.tel"/>
+        </mat-form-field>
+        <span style="display: inline-block; width: 2ch">&#9;&#9;&#9;</span
+        ><button mat-flat-button color="primary" (click)= "onSubmit()" class="button">Save</button>
+      </p>
+      <p>
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Enter your summary</mat-label>
+          <textarea matInput [(ngModel)]="user.summary"></textarea>
+        </mat-form-field>
+      </p>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div class="rounded-box">
+      <div class="header"><strong>Latest Activity</strong></div>
+      <app-post-thumbnail [post]="lastPost"></app-post-thumbnail>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div class="rounded-box">
+      <div class="header"><strong>Skills & Interests</strong></div>
+      <mat-form-field class="chip-list" appearance="fill">
+        <mat-chip-list #chipList aria-label="Interest selection">
+          <mat-chip
+            *ngFor="let interest of interests"
+            [selectable]="selectable"
+            [removable]="removable"
+            (removed)="remove(interest)"
+          >
+            {{ interest.tag }}
+            <button matChipRemove *ngIf="removable">
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip>
+          <input
+            placeholder="New interest..."
+            [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            [matChipInputAddOnBlur]="addOnBlur"
+            (matChipInputTokenEnd)="add($event)"
+          />
+        </mat-chip-list>
+      </mat-form-field>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

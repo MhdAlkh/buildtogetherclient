@@ -1,0 +1,498 @@
+@import 'src/styles';
+
+#menu-main-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+
+  display: grid;
+  grid-template-rows: 10% 90%;
+  grid-template-columns: 15% 85%;
+}
+// =====================================================================================================================
+// =====================================================================================================================
+// =====================================================================================================================
+#menu-header {
+  grid-column-start: 1;
+  grid-column-end:   3;
+
+  position: sticky;
+
+  display: flex;
+
+  margin: 1%;
+
+
+  #menu-header-logo-container {
+    flex: 3;
+
+    height: 80px;
+
+    display: flex;
+    justify-content: center;
+
+    img {
+      object-fit: contain;
+    }
+  }
+  #menu-header-searchbar-container {
+    flex: 15;
+
+
+    height: 100%;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: 600;
+
+    #global-app-search {
+      width: 70%;
+    }
+
+    mat-icon {
+      margin-left: -30px;
+      color: $grey-text-color;
+    }
+
+  }
+
+  #menu-header-profil-container {
+    flex: 5;
+
+
+    display: flex;
+
+    #menu-header-profil-name-profession {
+      flex: 5;
+
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      padding-right: 5px;
+
+
+      #menu-header-profil-name {
+        font-weight: 800;
+        font-size: 18px;
+        color: #4A4A4A;
+
+        text-align: right;
+        margin: 0;
+      }
+
+      #menu-header-profil-profession {
+        font-weight: 500;
+        color: $text-color;
+
+        text-align: right;
+        margin: 0;
+      }
+
+
+    }
+
+    #menu-header-profil-picture {
+      flex: 3;
+
+
+      display: flex;
+      justify-content: center;
+
+      img {
+        height: 100%;
+      }
+
+    }
+
+  }
+
+
+}
+// =====================================================================================================================
+// =====================================================================================================================
+// =====================================================================================================================
+
+#menu-navbar {
+  position: sticky;
+  background-color: white;
+
+  display: flex;
+  flex-direction: column;
+  margin-top: 15%;
+
+  // ===================================================================================================================
+  #menu-navbar-navigation-shortcuts {
+
+    flex: 20;
+    margin-top: 5%;
+    font-weight: 800;
+    font-size: 22px;
+
+
+    .menu-navbar-shortcuts-titles {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      cursor: pointer;
+
+      position: relative;
+
+      font-weight: 800;
+      font-size: 20px;
+      white-space: nowrap;
+
+      padding: 15px;
+
+      mat-icon {
+        margin-right: 8px;
+      }
+    }
+
+    .menu-navbar-shortcuts-selected-title {
+      background: rgb(248,250,251);
+      background: linear-gradient(90deg, rgba(248,250,251,1) 0%, rgba(253,250,254,1) 77%, rgba(255,255,255,1) 100%);
+      color: $main-color;
+
+    }
+
+    .menu-navbar-shortcuts-selected-bar {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+
+      height: 100%;
+      width: 5px;
+      background-color: $main-color;
+    }
+
+  }
+  // ===================================================================================================================
+  // ===================================================================================================================
+  #menu-navbar-project-shortcuts {
+    flex:10;
+
+
+    display: flex;
+    flex-direction: column;
+
+
+
+
+    #menu-navbar-project-shortcuts-header {
+      flex: 1;
+
+
+      padding: 5%;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+
+      font-weight: 700;
+      font-size: 20px;
+
+
+      #menu-navbar-project-shortcuts-header-title {
+        color: $main-color;
+
+      }
+
+      #menu-navbar-project-shortcuts-header-counter {
+        font-size: 16px;
+        background-color: #EAF1FE;
+        color: #3B75B6;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        height: 30px;
+        width: 30px;
+
+        border-radius: 10px;
+      }
+
+      #menu-navbar-project-shortcuts-header-more {
+
+        font-size: 25px;
+        cursor: pointer;
+      }
+    }
+
+
+    #menu-navbar-project-shortcuts-content {
+      flex: 20;
+
+    }
+
+
+  }
+  // ===================================================================================================================
+  // ===================================================================================================================
+  #menu-navbar-disconnect {
+    flex: 1;
+
+  }
+}
+// =====================================================================================================================
+// =====================================================================================================================
+// =====================================================================================================================
+#main-content {
+  background-color: $secondary-background;
+  border-radius: 30px 0 0 0;
+
+  padding: 2% 4% 2% 2%;
+
+
+  overflow: auto;
+}
+
+
+
+/*
+
+:host {
+
+
+  #intern-header {
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+
+
+    #intern-header-row-1 {
+      height: 7%;
+      margin: .5%;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+
+
+
+      #intern-header-div-logo {
+        height: 100%;
+        flex:1;
+      }
+
+      img {
+        height: 100%;
+      }
+
+
+
+      #intern-header-searchfield {
+        height: 100%;
+        flex:4;
+
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-weight: 600;
+
+        #global-app-search {
+          width: 70%;
+        }
+
+        mat-icon {
+          margin-left: -30px;
+          color: $grey-text-color;
+        }
+
+      }
+
+      #intern-header-profile {
+        height: 100%;
+        flex:1;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        div {
+          margin: 5px;
+        }
+
+        mat-icon {
+          font-size: 30px;
+        }
+
+
+        #intern-header-notifications-icon {
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        #intern-header-profile-name-profession {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+
+
+
+          #intern-header-profile-name {
+            font-weight: 800;
+            font-size: 18px;
+            color: #4A4A4A;
+
+            text-align: right;
+            margin: 0;
+          }
+
+          #intern-header-profile-profession {
+            font-weight: 500;
+            color: $text-color;
+
+            text-align: right;
+            margin: 0;
+          }
+        }
+      }
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #intern-header-row-2 {
+      display: flex;
+      flex-direction: row;
+
+      flex-grow: 1;
+
+
+
+      #intern-navbar {
+        margin-top: .5%;
+        display: flex;
+        flex-direction: column;
+
+
+        #intern-navbar-navigation-shortcuts {
+          flex: 10;
+          padding-top: 30px;
+        }
+
+        .intern-navbar-navigation-shortcuts-titles {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+          position: relative;
+
+          font-weight: 800;
+          font-size: 22px;
+          white-space: nowrap;
+
+          padding: 15px;
+
+          mat-icon {
+            margin-right: 8px;
+          }
+        }
+
+        .intern-navbar-navigation-shortcuts-selected-title {
+          background: rgb(248,250,251);
+          background: linear-gradient(90deg, rgba(248,250,251,1) 0%, rgba(253,250,254,1) 77%, rgba(255,255,255,1) 100%);
+          color: $main-color;
+
+        }
+
+        .intern-navbar-navigation-shortcuts-selected-bar {
+          position: absolute;
+          right: 0;
+          top: 0;
+          bottom: 0;
+
+
+          height: 100%;
+          width: 5px;
+          background-color: $main-color;
+        }
+
+
+
+
+
+        #intern-navbar-project-shortcuts {
+          flex: 4;
+          border: 1px solid black;
+        }
+
+        #intern-navbar-disconnect {
+          flex: 0.5;
+        }
+
+      }
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  #main-content {
+    background-color: $secondary-background;
+
+    width: 100%;
+
+    border-radius: 30px 0 0 0;
+
+    padding: 2% 5% 2% 2%;
+
+    margin-top: .5%;
+  }
+
+
+}
+
+*/
+

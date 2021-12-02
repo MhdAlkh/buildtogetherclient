@@ -1,0 +1,46 @@
+<div id="post-thumbnail-component">
+
+  <div id="post-thumbnail-date" class="margin-top-10">
+    {{post.created_at | date}}
+  </div>
+
+  <div id="post-thumbnail-title" >
+    {{(post.title.length>30)? (post.title | slice:0:30)+'..':(post.title)}}
+  </div>
+
+  <div class="content-divider full-width margin-top-10"></div>
+
+  <div id="post-thumbnail-description" class="margin-top-10">
+    {{(post.body.length>30)? (post.body | slice:0:100)+'..':(post.body)}}
+  </div>
+
+
+  <div id="" *ngIf="modifyingPost">
+
+    <form [formGroup]="postModificationForm">
+      <div class="row">
+
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Title</mat-label>
+            <input type="text" matInput formControlName="title">
+          </mat-form-field>
+
+
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+          </mat-form-field>
+
+      </div>
+    </form>
+  </div>
+
+
+  <button class="action-button full-width margin-top-10" *ngIf="userPost" (click)="editPost()">{{callToAction}}</button>
+
+  <button mat-stroked-button class="full-width margin-top-10" *ngIf="userPost" (click)="deletePost()">Delete Post</button>
+
+
+</div>
+
+

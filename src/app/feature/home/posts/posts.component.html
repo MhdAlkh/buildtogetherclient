@@ -1,0 +1,28 @@
+<div *ngIf="allPosts === null" class="full-width full-height">
+  <mat-spinner></mat-spinner>
+</div>
+
+
+<div *ngIf="allPosts != null" class="full-width full-height" id="post-thumbnail-dashboard">
+
+
+  <div class="intern-title">Your Posts</div>
+
+  <div class="project-thumbnail-dashboard">
+    <app-post-thumbnail *ngFor="let post of userPosts" [post]="post" [userPost]="true" class="project-thumbnail"></app-post-thumbnail>
+  </div>
+
+
+  <div id="project-thumbnail-add" class="intern-button" (click)="createNewPost()" ><mat-icon>add</mat-icon></div>
+
+  <div class="intern-title">Public Posts</div>
+
+  <div class="project-thumbnail-dashboard">
+    <app-post-thumbnail *ngFor="let post of allPosts" [post]="post" class="project-thumbnail"></app-post-thumbnail>
+  </div>
+
+
+
+</div>
+
+

@@ -1,0 +1,24 @@
+<div id="project-thumbnail-component">
+
+  <div id="project-thumbnail-category" class="margin-top-10">
+    {{project.category | uppercase}}
+  </div>
+
+  <div id="project-thumbnail-title" >
+    {{(project.name.length>20)? (project.name | slice:0:20)+'..':(project.name)}}
+    <p style='float:right'>{{amount}}</p>
+  </div>
+
+  <div class="content-divider full-width margin-top-10"></div>
+
+  <div id="project-thumbnail-description" class="margin-top-10">
+    {{(project.summary.length>30)? (project.summary | slice:0:100)+'..':(project.summary)}}
+  </div>
+
+
+  <app-money-slider [achievedFund]="+project.achievedFund" [totalFund]="+project.totalFund"></app-money-slider>
+
+  <button class="action-button full-width margin-top-10" (click)="goToProject()">{{callToAction}}</button>
+
+
+</div>

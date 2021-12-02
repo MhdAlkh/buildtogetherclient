@@ -1,0 +1,17 @@
+<div *ngIf="projects" class="full-width full-height" >
+    <div class="intern-title">Search for {{searchString}} in projects </div>
+
+    <div class="project-thumbnail-dashboard">
+    <app-project-thumbnail *ngFor="let project of projects" [project]="project" class="project-thumbnail"></app-project-thumbnail>
+  </div>
+
+</div>
+
+<div *ngIf="posts" class="full-width full-height" >
+    <div class="intern-title">Search for {{searchString}} in posts </div>
+
+    <div class="project-thumbnail-dashboard">
+    <app-post-thumbnail *ngFor="let post of posts" [post]="post" class="project-thumbnail"></app-post-thumbnail>
+  </div>
+
+</div>

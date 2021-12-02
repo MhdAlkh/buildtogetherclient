@@ -1,0 +1,70 @@
+<div id="create-project-title">Add a new project</div>
+
+
+<form id="create-project-fields" [formGroup]="projectForm" *ngIf="statusCreation === false">
+
+  <div id="create-project-fields-column-1">
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Name of the new project</mat-label>
+      <input matInput formControlName="project_name">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Select a project type</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let type of P_TYPES" [value]="type" (click)="fetchProjectType(type)">{{type}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="fill" *ngIf="hackatonIsChoosen">
+      <mat-label>Start Date</mat-label>
+      <input type="date" matInput>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="fill" *ngIf="hackatonIsChoosen">
+      <mat-label>End Date</mat-label>
+      <input type="date" matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Select a category</mat-label>
+      <mat-select (change)=fetchProjectCategory($event)>
+        <mat-option *ngFor="let category of PROJECT_CATEGORIES" [value]="category" (click)="fetchProjectCategory(category)">{{category}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Select a investment goal</mat-label>
+      <input matInput formControlName="project_totalfund" type="number">
+      <span matPrefix>$&nbsp;</span>
+      <span matSuffix>.00</span>
+    </mat-form-field>
+
+  </div>
+
+  <div id="create-project-fields-column-2">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Summary of the project</mat-label>
+      <textarea matInput formControlName="project_summary"></textarea>
+    </mat-form-field>
+  </div>
+
+
+</form>
+
+<button class="action-button full-width" (click)="createProject()" *ngIf="isCreationOfProject === true">Create the project</button>
+<button class="action-button full-width" (click)="modifyProject()" *ngIf="isCreationOfProject === false">Modify the project</button>
+
+{{error_message}}
+
+
+
+
+
+
+
+
+
+
+

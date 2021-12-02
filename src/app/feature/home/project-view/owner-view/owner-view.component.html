@@ -1,0 +1,123 @@
+<mat-grid-list cols="2" rowHeight="2:1">
+    <div class="rounded_box">
+        <mat-grid-tile>
+            <mat-card *ngIf="!isEdit">
+                <mat-card-title><strong>{{name}}</strong></mat-card-title>
+                <mat-card-content>
+                    <mat-icon class="edit" (click)="isEdit = true">edit</mat-icon><br />
+                    <p>{{text}}</p>
+
+                </mat-card-content>
+            </mat-card>
+            <mat-card *ngIf="isEdit" class="edit-container">
+                <p>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Project name</mat-label>
+                      <input matInput type="text" [(ngModel)]="project.name" />
+                    </mat-form-field>
+                    <span style="display: inline-block; width: 2ch">&#9;&#9;&#9;</span>
+                    <button mat-flat-button color="primary" (click)= "onSubmit()" class="button">Save</button>
+                </p>
+                <p>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Enter your summary</mat-label>
+                        <textarea matInput [(ngModel)]="project.summary"></textarea>
+                    </mat-form-field>
+                </p>
+            </mat-card>
+        </mat-grid-tile>
+    </div>
+    <div class="rounded_box">
+        <mat-grid-tile>
+            <mat-card *ngIf="!isEditImage">
+                <mat-card-content>
+                  <mat-icon class="edit" (click)="isEditImage = true">edit</mat-icon>
+                  <div>
+                    <img *ngIf="!image" src="assets/temporary/project-photo.jpg" alt="Project Photo" />
+                    <img *ngIf="image" [src]='image' alt="Project Photo" />
+                  </div>
+                </mat-card-content>
+              </mat-card>
+              <mat-card *ngIf="isEditImage">
+                <mat-card-content>
+                <app-file-upload (submitFile)="onSubmitFile($event)"></app-file-upload>
+                </mat-card-content>
+              </mat-card>
+        </mat-grid-tile>
+    </div>
+    <div class="rounded_box">
+        <mat-grid-tile>
+            <mat-card *ngIf=!isEditPosition>
+                <mat-tab-group animationDuration="0ms" style="height: calc(100%); min-height: calc(100%); min-width: 100%; width: 100%; margin: 0px;">
+                    <mat-tab label="Positions">
+                        <mat-icon class="edit" (click)="isEditPosition = true" style="right: 2%;">edit</mat-icon><br/>
+                        <div class="row">
+                            <div class="column">
+                                <h2>We are</h2>
+                                <p *ngFor="let item of countsClosed | keyvalue">{{item.value}} {{item.key}}</p>
+                                                </div>
+                            <div class="column">
+                                <h2>We search</h2>
+                                <p *ngFor="let item of countsOpen | keyvalue">{{item.value}} {{item.key}}</p>
+                            </div>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Applications">
+                        <mat-card *ngFor="let application of applications">
+                            <mat-card-title>{{findProjectTitle(application.position_id)}}</mat-card-title>
+                            <mat-card-content >
+                              <p>{{application.comment}}</p>
+                            </mat-card-content>
+                            <mat-card-actions>
+                              <button mat-button (click)="acceptApplication(application)">Accept</button>
+                              <button mat-button (click)="rejectApplication(application)">Reject</button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </mat-tab>
+                </mat-tab-group>
+            </mat-card>
+            <mat-card *ngIf=isEditPosition>
+                <mat-form-field class="closedPosition-chip-list" appearance="fill">
+                    <mat-label>Our team</mat-label>
+                    <mat-chip-list #chipList aria-label="Position selection">
+                      <mat-chip *ngFor="let position of openedPositions" [selectable]="selectable"
+                               [removable]="removable" (removed)="remove(position)">
+                        {{position.title}}
+                        <button matChipRemove *ngIf="removable">
+                          <mat-icon>cancel</mat-icon>
+                        </button>
+                      </mat-chip>
+                      <input placeholder="New position..."
+                             [matChipInputFor]="chipList"
+                             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                             [matChipInputAddOnBlur]="addOnBlur"
+                             (matChipInputTokenEnd)="add($event)">
+                    </mat-chip-list>
+                </mat-form-field>
+                <button mat-flat-button color="primary" (click)= "onSubmitPosition()" class="position_button">Back</button>
+            </mat-card>
+        </mat-grid-tile>
+    </div>
+    <div class="rounded_box">
+        <mat-grid-tile>
+            <mat-card *ngIf="!isEditFund">
+                <mat-card-title><strong>Project fund</strong></mat-card-title>
+                <div class="investment">
+                    <mat-icon class="edit" (click)="isEditFund = true">edit</mat-icon><br />
+                    <app-money-slider [achievedFund]="achievedFund" [totalFund]="+project.totalFund"></app-money-slider>
+                </div>
+                <button mat-button (click)="openDialog()">Investors</button>
+            </mat-card>
+            <mat-card *ngIf="isEditFund" class='edit-container'>
+                <p class="investment-edit">
+                    <mat-form-field appearance="fill">
+                      <mat-label>Total fund</mat-label>
+                      <input matInput type="number" [(ngModel)]="project.totalFund" />
+                    </mat-form-field>
+                    <span style="display: inline-block; width: 2ch">&#9;&#9;&#9;</span>
+                    <button mat-flat-button color="primary" (click)= "onSubmitFund()" class="button">Save</button>
+                </p>
+            </mat-card>
+        </mat-grid-tile>
+    </div>
+</mat-grid-list>

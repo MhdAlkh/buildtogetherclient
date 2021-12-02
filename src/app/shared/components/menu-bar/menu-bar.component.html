@@ -1,0 +1,166 @@
+
+
+<div id="menu-main-container" *ngIf="currentUser != null">
+
+  <!--  ============================================================================================================ -->
+  <div id="menu-header">
+
+    <div id="menu-header-logo-container">
+      <img src="assets/imgs/logo.png">
+    </div>
+
+    <div id="menu-header-searchbar-container">
+      <input type="text" [(ngModel)]="searchString" id="global-app-search" name="global-app-search" placeholder="Search something ..." required class="inner-textfield">
+      <mat-icon (click)="search()">search</mat-icon>
+    </div>
+
+
+
+    <div id="menu-header-profil-container" (click)="goToUserProfil()">
+      <div id="menu-header-profil-name-profession" class="full-width">
+        <div id="menu-header-profil-name" class="full-width">{{currentUser.first_name}} {{currentUser.last_name}}</div>
+        <div id="menu-header-profil-profession" class="full-width">{{currentUser.title}}</div>
+      </div>
+      <div id="menu-header-profil-picture">
+        <!--<img src="{{currentUser.photo}}" onerror="this.onerror=null; this.src='assets/temporary/profile-icon.png'">-->
+        <img [src]='userImage'>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+
+
+  <!--  ============================================================================================================ -->
+  <div id="menu-navbar">
+
+    <div id="menu-navbar-navigation-shortcuts">
+      <div *ngFor="let shortcut of MENU_OPTIONS; let index = index" class="menu-navbar-shortcuts-titles"
+           [ngClass]="{'menu-navbar-shortcuts-selected-title' : shortcut.is_selected === true}"
+           (click)="changeMenuPage(index)"
+      >
+        <mat-icon>{{shortcut.icon}}</mat-icon>
+        <div>{{shortcut.menu_name}}</div>
+        <div *ngIf="shortcut.is_selected === true" class="menu-navbar-shortcuts-selected-bar">|</div>
+      </div>
+    </div>
+
+
+
+    <div id="menu-navbar-project-shortcuts">
+
+      <!--  ============================================================================== -->
+      <div id="menu-navbar-project-shortcuts-header">
+        <div id="menu-navbar-project-shortcuts-header-title">
+          My Projects
+        </div>
+        <div id="menu-navbar-project-shortcuts-header-counter">
+          {{userProjects ===  null ? 0 : userProjects.length}}
+        </div>
+        <div id="menu-navbar-project-shortcuts-header-more" (click)="addNewProject()">
+          <mat-icon>add</mat-icon>
+        </div>
+      </div>
+      <!--  ============================================================================== -->
+      <div id="menu-navbar-project-shortcuts-content" >
+
+        <app-menu-project-thumnail *ngFor="let project of userProjects" [project]="project">
+        </app-menu-project-thumnail>
+
+      </div>
+
+
+    </div>
+
+
+    <div id="menu-navbar-disconnect" (click)="disconnect()">Log Out</div>
+
+  </div>
+
+
+
+  <!--  ============================================================================================================ -->
+  <div id="main-content">
+    <ng-content select=".content"></ng-content>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!--
+
+<div id="intern-header">
+  <div id="intern-header-row-1">
+
+    <div id="intern-header-div-logo">
+      <img src="assets/imgs/logo.png">
+    </div>
+
+
+    <div id="intern-header-searchfield">
+      <input type="text" id="global-app-search" name="global-app-search" placeholder="Search something ..." required class="inner-textfield">
+      <mat-icon>search</mat-icon>
+    </div>
+
+
+    <mat-icon>notifications_none</mat-icon>
+
+    <div id="intern-header-profile" (click)="goToUserProfil()">
+
+
+
+
+
+      <div id="intern-header-profile-name-profession" class="full-width">
+        <div id="intern-header-profile-name" class="full-width">D'Andrea William</div>
+        <div id="intern-header-profile-profession" class="full-width">Developper</div>
+      </div>
+      <div id="intern-header-profile-picture">
+        <img src="assets/temporary/profile-icon.png">
+      </div>
+    </div>
+  </div>
+
+
+  <div id="intern-header-row-2">
+
+    <div id="intern-navbar">
+
+      <div id="intern-navbar-navigation-shortcuts">
+
+        <div *ngFor="let shortcut of MENU_OPTIONS; let index = index" class="intern-navbar-navigation-shortcuts-titles"
+             [ngClass]="{'intern-navbar-navigation-shortcuts-selected-title' : shortcut.is_selected === true}"
+             (click)="changeMenuPage(index)"
+        >
+          <mat-icon>{{shortcut.icon}}</mat-icon>
+          <div>{{shortcut.menu_name}}</div>
+          <div *ngIf="shortcut.is_selected === true" class="intern-navbar-navigation-shortcuts-selected-bar">|</div>
+        </div>
+      </div>
+
+      <div id="intern-navbar-project-shortcuts"></div>
+
+
+      <div id="intern-navbar-disconnect" (click)="disconnect()">Disconnect</div>
+
+    </div>
+
+
+
+    <div id="main-content">
+      <ng-content select=".content"></ng-content>
+    </div>
+
+
+  </div>
+</div>
+
+
+-->

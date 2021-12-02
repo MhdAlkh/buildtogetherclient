@@ -1,0 +1,47 @@
+@import 'src/styles';
+
+:host {
+
+  #menu-project-thumbnail-main-container {
+
+    display: flex;
+
+    margin: 5%;
+
+    cursor: pointer;
+
+
+    #menu-project-thumbnail-picture {
+      height: 50px;
+      width: 50px;
+      background-color: #EEF1F9;
+      box-shadow: 1px 1px 4px rgba(0,0,0,0.25);
+      border-radius: 8px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 15px;
+    }
+
+    #menu-project-thumbnail-content {
+
+      margin: 5px;
+
+      #menu-project-thumbnail-content-title {
+        font-weight: 600;
+        font-size: 16px;
+      }
+
+      #menu-project-thumbnail-content-description {
+        color: $grey-text-color;
+        font-weight: 500;
+        font-size: 12px;
+      }
+
+    }
+  }
+
+
+
+}

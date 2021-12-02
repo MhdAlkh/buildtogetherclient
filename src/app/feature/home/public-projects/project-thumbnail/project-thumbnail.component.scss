@@ -1,0 +1,38 @@
+@import 'src/styles';
+
+#project-thumbnail-component {
+  width: 100%;
+
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 3px 3px 3px $grey-text-color;
+
+  padding: 20px;
+}
+
+
+
+#project-thumbnail-category {
+
+
+  font-weight: 500;
+  color: $text-color;
+  font-size: 15px;
+}
+
+#project-thumbnail-title {
+
+  color: $main-color;
+  font-size: 22px;
+  font-weight: 800;
+
+}
+
+#project-thumbnail-description {
+
+  font-size: 12px;
+  font-weight: 400;
+
+}
+
+

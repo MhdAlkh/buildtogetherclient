@@ -1,0 +1,54 @@
+@import 'src/styles';
+
+:host {
+
+
+  .money-progress-bar{
+
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 10px;
+    background: #f1f1f1;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, .2);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+
+
+  #slider {
+    content: '';
+    position: absolute;
+    left: 0;
+    background: $main-color;
+    height: 100%;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+    animation: load 5s infinite;
+  }
+
+
+  #numbers-div {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 15px;
+    margin-bottom: 2px;
+  }
+
+
+  #goal-txt {
+    color: $black-Text-color;
+    font-weight: 800;
+
+  }
+
+  #achieved-txt {
+    color: $black-Text-color;
+    font-weight: 800;
+  }
+
+
+
+}

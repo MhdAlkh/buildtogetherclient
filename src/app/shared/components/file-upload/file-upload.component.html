@@ -1,0 +1,17 @@
+<mat-form-field enctype='multipart/form-data'>
+  <div>
+    <mat-toolbar>
+      <!-- Display files names -->
+      <input matInput [(ngModel)]="fileAttr" readonly name="name" />
+
+      <!-- Browse Button -->
+      <button mat-flat-button color="primary" class="button">
+        Browse File
+      </button>
+    </mat-toolbar>
+
+    <!-- Fetch selected filed on change -->
+    <input enctype='multipart/form-data' type="file" #fileInput id="uploadFile" (change)="onFileChange($event)" name="uploadFile" accept="image/*" />
+  </div>
+</mat-form-field>
+<button mat-flat-button color="primary" (click)= "onSubmit()" class="button">Save</button>
